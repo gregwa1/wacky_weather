@@ -1,26 +1,62 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import Header from './componentes/Header';
+import Footer from './componentes/Footer';
+import { getWeather } from './api-helper';
+import Button from './componentes/Button';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      weather: null,
+      city: ""
+    }
+  }
+
+
+
+  componentDidMount = async () => {
+    const weather = await getWeather();
+    this.setState({
+      weather: weather
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      city: e.target.value
+    })
+    console.log(e.target.value)
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const weather = await getWeather(this.state.city);
+    this.setState({
+      weather: weather
+    })
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Button
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          weather={this.state.weather} />
+
+
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
