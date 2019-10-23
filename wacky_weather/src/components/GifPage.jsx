@@ -6,13 +6,16 @@ const gifWeather = '';
 
 export default function GifPage(props) {
   return (
-    <div>
-      <h3>Gifs for {props.weather && props.weather.weather[0].description}</h3>
-      {props.gifs.map(gif => (
-        <div key={gif.id}>
-          <img src={gif.images.original.url} />
-        </div>
-      ))}
+    <div id='blah'>
+      <h3 id='gifs-description'>Gifs for {props.weather && props.weather.weather[0].description}</h3>
+      <div className="img">
+        {props.gifs.map(gif => (
+          <div key={gif.id}>
+            <img src={gif.images.original.url} />
+          </div>
+
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Button(props) {
   return (
-    <div>
+    <div className="container">
       {props.weather === null ?
         <h3>Loading...</h3> :
         <>
@@ -13,6 +14,9 @@ export default function Button(props) {
           <p>{props.weather.weather[0].description}</p>
         </>
       }
+      <div className="gifss" >
+        {props.weather && <Link to="/gifpage" >Giphy Your City</Link>}
+      </div>
     </div>
   )
 }
