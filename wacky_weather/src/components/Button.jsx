@@ -6,8 +6,8 @@ export default function Button(props) {
       {props.weather === null ?
         <h3>Loading...</h3> :
         <>
-          <input type="text" placeholder=" Enter City " onChange={props.handleChange} />
-          <button onClick={props.handleSubmit}>Search</button>
+          <input type="text" placeholder="Enter City" onChange={props.handleChange} />
+          <button onClick={props.handleClick}>Search</button>
           <h1>{Math.round(props.weather.main.temp)}&deg;</h1>
           <p>{props.weather.name}</p>
           <p>{props.weather.weather[0].description}</p>

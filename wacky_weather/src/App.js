@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Header from './componentes/Header';
-import Footer from './componentes/Footer';
-import { getWeather } from './api-helper';
-import Button from './componentes/Button';
-
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { getWeather } from './services/api-helper';
+import { getGifs } from './services/gif-api-helper';
+import Button from './components/Button';
+import GifPage from './components/GifPage';
 
 
 class App extends React.Component {
@@ -14,16 +14,20 @@ class App extends React.Component {
     super();
     this.state = {
       weather: null,
-      city: ""
+      city: "",
+      description: "",
+      gifs: []
     }
   }
 
-
-
   componentDidMount = async () => {
-    const weather = await getWeather();
+    let weather = await getWeather();
+    let description = weather.weather[0].description
+    const gifs = await getGifs(weather.weather[0].description);
     this.setState({
-      weather: weather
+      weather: weather,
+      description: description,
+      gifs: gifs
     })
   }
 
@@ -31,27 +35,41 @@ class App extends React.Component {
     this.setState({
       city: e.target.value
     })
-    console.log(e.target.value)
   }
 
-  handleSubmit = async (e) => {
+  handleClick = async (e) => {
     e.preventDefault();
     const weather = await getWeather(this.state.city);
+
+    const gifs = await getGifs(weather.weather[0].description);
+
     this.setState({
-      weather: weather
+      weather: weather,
+      gifs: gifs
     })
   }
+
 
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Button
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          weather={this.state.weather} />
 
+        <Route exact path="/" render={() => (
+          <Button id='description'
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            weather={this.state.weather}
+          />
+        )} />
+
+        <Route path='/gifpage' render={() => (
+          <GifPage
+            gifs={this.state.gifs}
+            weather={this.state.weather}
+          />)
+        } />
 
         <Footer />
       </div>
