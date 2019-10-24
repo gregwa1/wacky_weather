@@ -78,17 +78,26 @@ img {
 }
 
 footer{
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 25px;
   text-align: center;
   color: aquamarine;
   background: teal;
+  justify-items: flex-end;
   height: 5%;
+}
+
+.github-image{
+  background-image: url('https://library.kissclipart.com/20190405/hve/kissclipart-computer-icons-github-clip-art-logo-dc9f8834e57de4e9.png');
+  background-size: 10%;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 #gifs-description {
   color: rgb(190, 49, 49);
   font-weight:  normal;
-
 }
 
 html {
@@ -126,5 +135,21 @@ button:hover {
   color: rgb(158, 91, 91);
   font-weight: 800;
 }
+
+button{
+  box-sizing: border-box;
+  background: #000000;
+  position: relative;
+  display: block;
+  left: 20%;
+  top: 5%;
+  margin-bottom: 3rem;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  transition: ease-in-out 150ms;
+}
+
 
 }
