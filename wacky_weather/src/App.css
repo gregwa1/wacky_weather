@@ -1,12 +1,15 @@
 .header {
   font-family: 'Fascinate Inline', cursive;
-  color: aquamarine;
+  color:  rgb(158, 91, 91);
   text-align: center;
 
 }
 
 .container{
   text-align: center;
+  color: rgb(158, 91, 91);
+  height: 80vh;
+  font-weight: bold;
 }
 
 .header a {
@@ -15,7 +18,7 @@
 }
 .gifss a:visited{
   text-decoration: none;
-  color: aquamarine;
+  color: rgb(158, 91, 91);
 }
 
 .img {
@@ -49,12 +52,35 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 650px;
+  height: 100vh;
 }
 
 footer{
-  margin-top: 300px;
-  margin-bottom: 40px;
-  text-align: left;
+  
+  text-align: center;
   color: aquamarine;
+  background: teal;
+  height: 5%;
+}
+
+#gifs-description {
+  color: rgb(158, 91, 91);
+
+}
+
+html {
+  background: teal;
+
+}
+
+@media (max-width: 500px){
+ button{
+   background-color: rgb(158, 91, 91);
+ }
+ .gifss a:visited{
+  text-decoration: none;
+  color: rgb(158, 91, 91);
+  font-weight: 800;
+}
+
 }
