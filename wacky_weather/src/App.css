@@ -1,16 +1,39 @@
 .header {
   font-family: 'Fascinate Inline', cursive;
-  color:  rgb(158, 91, 91);
+  color:  rgb(218, 45, 45);
   text-align: center;
-
+  background: rgba(255, 255, 255, .3);
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  border-radius: 20px 20px 0 0;
 }
 
 .container{
   text-align: center;
-  color: rgb(158, 91, 91);
+  color: rgb(218, 45, 45);
   height: 80vh;
   font-weight: bold;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
+
+.container::after {
+  content: '';
+  background-color: rgba(255, 255, 255, .3);
+  position: absolute;
+  display: block;
+  height: 85%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 20px 20px;
+  z-index: -1;
+}
+
 
 .header a {
   color: aquamarine;
@@ -18,7 +41,7 @@
 }
 .gifss a:visited{
   text-decoration: none;
-  color: rgb(158, 91, 91);
+  color: rgb(218, 45, 45);
 }
 
 .img {
@@ -38,8 +61,9 @@ img {
   height: 100%;
 }
 
-.gifs{
-  width: 350px;
+.gifs a{
+  text-decoration: none;
+
 }
 
 #gifs-description {
@@ -71,6 +95,27 @@ footer{
 html {
   background: teal;
 
+}
+
+button{
+  box-sizing: border-box;
+  background: #000000;
+  position: relative;
+  display: block;
+  left: 42%;
+  top: 5%;
+  margin-bottom: 3rem;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  transition: ease-in-out 150ms;
+}
+
+button:hover {
+  cursor: pointer;
+  background: aquamarine;
+  color: #000000;
 }
 
 @media (max-width: 500px){
