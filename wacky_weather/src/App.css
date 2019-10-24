@@ -1,6 +1,6 @@
 .header {
   font-family: 'Fascinate Inline', cursive;
-  color:  rgb(218, 45, 45);
+  color:  rgb(190, 49, 49);
   text-align: center;
   background: rgba(255, 255, 255, .3);
   width: 50%;
@@ -11,7 +11,7 @@
 
 .container{
   text-align: center;
-  color: rgb(218, 45, 45);
+  color: rgb(190, 49, 49);
   height: 80vh;
   font-weight: bold;
   width: 50%;
@@ -66,9 +66,7 @@ img {
 
 }
 
-#gifs-description {
-  font-weight:  normal;
-}
+
 
 .app {
   background: url("https://wallpapersmug.com/download/3840x2400/89b2af/anime-girls-outdoor-clouds.jpg");
@@ -88,7 +86,8 @@ footer{
 }
 
 #gifs-description {
-  color: rgb(158, 91, 91);
+  color: rgb(190, 49, 49);
+  font-weight:  normal;
 
 }
 
